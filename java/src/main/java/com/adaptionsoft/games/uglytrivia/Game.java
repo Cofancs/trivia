@@ -44,10 +44,10 @@ public class Game {
         return (howManyPlayers() >= 2);
     }
 
-    public void add(String playerName) {
+    public void add(Player player) {
         //TODO: check for max player size
-        players.add(new Player(playerName));
-        gameStatusHandler.displayStatus(playerName + " was added");
+        players.add(player);
+        gameStatusHandler.displayStatus(player.getName() + " was added");
         gameStatusHandler.displayStatus("They are player number " + players.size());
     }
 
@@ -170,5 +170,9 @@ public class Game {
 
     public void setCurrentPlayer(Player currentPlayer) {
         this.currentPlayer = currentPlayer;
+    }
+
+    public void setFirstPlayer() {
+        setCurrentPlayer(getPlayers().get(0));
     }
 }
