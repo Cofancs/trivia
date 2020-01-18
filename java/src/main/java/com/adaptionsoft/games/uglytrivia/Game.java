@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.adaptionsoft.games.uglytrivia.question.QuestionCategory.*;
+
 public class Game {
     List<Player> players = new ArrayList();
     //FIXME: extract magic number to constant
@@ -84,30 +86,30 @@ public class Game {
 
     }
 
-    private void askQuestion() {
-        if (currentCategory() == "Pop")
-            System.out.println(popQuestions.removeFirst());
-        if (currentCategory() == "Science")
-            System.out.println(scienceQuestions.removeFirst());
-        if (currentCategory() == "Sports")
-            System.out.println(sportsQuestions.removeFirst());
-        if (currentCategory() == "Rock")
-            System.out.println(rockQuestions.removeFirst());
-    }
+	private void askQuestion() {
+		if (currentCategory() == POP.getDisplayName())
+			System.out.println(popQuestions.removeFirst());
+		if (currentCategory() == SIENCE.getDisplayName())
+			System.out.println(scienceQuestions.removeFirst());
+		if (currentCategory() == SPORTS.getDisplayName())
+			System.out.println(sportsQuestions.removeFirst());
+		if (currentCategory() == ROCK.getDisplayName())
+			System.out.println(rockQuestions.removeFirst());
+	}
 
 
-    private String currentCategory() {
-        if (places[currentPlayer] == 0) return "Pop";
-        if (places[currentPlayer] == 4) return "Pop";
-        if (places[currentPlayer] == 8) return "Pop";
-        if (places[currentPlayer] == 1) return "Science";
-        if (places[currentPlayer] == 5) return "Science";
-        if (places[currentPlayer] == 9) return "Science";
-        if (places[currentPlayer] == 2) return "Sports";
-        if (places[currentPlayer] == 6) return "Sports";
-        if (places[currentPlayer] == 10) return "Sports";
-        return "Rock";
-    }
+	private String currentCategory() {
+		if (places[currentPlayer] == 0) return POP.getDisplayName();
+		if (places[currentPlayer] == 4) return POP.getDisplayName();
+		if (places[currentPlayer] == 8) return POP.getDisplayName();
+		if (places[currentPlayer] == 1) return SIENCE.getDisplayName();
+		if (places[currentPlayer] == 5) return SIENCE.getDisplayName();
+		if (places[currentPlayer] == 9) return SIENCE.getDisplayName();
+		if (places[currentPlayer] == 2) return SPORTS.getDisplayName();
+		if (places[currentPlayer] == 6) return SPORTS.getDisplayName();
+		if (places[currentPlayer] == 10) return SPORTS.getDisplayName();
+		return ROCK.getDisplayName();
+	}
 
     public boolean wasCorrectlyAnswered() {
         if (penaltyBox.contains(currentPlayer)) {
