@@ -31,7 +31,8 @@ public class GameTest {
   @Test
   public void nextPlayerWasCalledAfterCorrectAnswer(){
     //GIVEN
-    underTest.add("testPlayer");
+    underTest.add("testPlayer1");
+    underTest.add("testPlayer2");
     //WHEN
     underTest.wasCorrectlyAnswered();
     //THEN
@@ -50,6 +51,7 @@ public class GameTest {
     //THEN
     Assert.assertEquals(0, underTest.currentPlayer);
   }
+
   @Test
   public void testAdd() {
     //GIVEN
