@@ -124,8 +124,8 @@ public class Game {
 						+ " Gold Coins.");
 				
 				boolean winner = didPlayerWin();
+				//TODO: duplication: steping to next / first player
 				currentPlayer++;
-				//TODO: duplication
 				if (currentPlayer == players.size()) currentPlayer = 0;
 				
 				return winner;
