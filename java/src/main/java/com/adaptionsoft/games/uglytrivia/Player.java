@@ -4,6 +4,7 @@ public class Player {
 
     private String name;
     private int purse;
+    private int position;
 
     public Player(String name) {
         this.name = name;
@@ -19,5 +20,13 @@ public class Player {
 
     public void getCoin() {
         purse++;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

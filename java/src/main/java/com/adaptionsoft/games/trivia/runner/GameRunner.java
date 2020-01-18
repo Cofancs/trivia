@@ -1,9 +1,9 @@
 
 package com.adaptionsoft.games.trivia.runner;
 
-import com.adaptionsoft.games.uglytrivia.Game;
-
 import java.util.Random;
+
+import com.adaptionsoft.games.uglytrivia.Game;
 
 
 public class GameRunner {
@@ -22,6 +22,7 @@ public class GameRunner {
     aGame.add("Sue");
 
     do {
+      aGame.setCurrentPlayer(aGame.getPlayers().get(0));
       aGame.roll(rand.nextInt(5) + 1);
 
       if (rand.nextInt(9) == 7) {
