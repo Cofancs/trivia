@@ -6,43 +6,44 @@ import org.junit.Test;
 
 public class GameTest {
 
-  private Game undertest;
+  private Game underTest;
 
   @Before
   public void setUp() throws Exception {
-    undertest = new Game();
+    underTest = new Game();
   }
 
   @Test
   public void wasCorrectlyAnsweredAddsCoinToCurrentPlayer(){
     //GIVEN
-    undertest.add("testPlayer");
+    underTest.add("testPlayer");
     //WHEN
-    undertest.wasCorrectlyAnswered();
+    underTest.wasCorrectlyAnswered();
     //THEN
-    Assert.assertEquals(1, undertest.purses[0]);
+    Assert.assertEquals(1, underTest.purses[0]);
   }
 
   @Test
   public void nextPlayerWasCalledAfterCorrectAnswer(){
     //GIVEN
-    undertest.add("testPlayer");
+    underTest.add("testPlayer1");
+    underTest.add("testPlayer2");
     //WHEN
-    undertest.wasCorrectlyAnswered();
+    underTest.wasCorrectlyAnswered();
     //THEN
-    Assert.assertEquals(1, undertest.currentPlayer);
+    Assert.assertEquals(1, underTest.currentPlayer);
   }
 
   @Test
   public void nextPlayerIsFirstPlayerWhenLastPlayerAnsweredCorrectly(){
     //GIVEN
-    undertest.add("testPlayer1");
-    undertest.add("testPlayer2");
-    undertest.add("testPlayer3");
-    undertest.currentPlayer = 2;
+    underTest.add("testPlayer1");
+    underTest.add("testPlayer2");
+    underTest.add("testPlayer3");
+    underTest.currentPlayer = 2;
     //WHEN
-    undertest.wasCorrectlyAnswered();
+    underTest.wasCorrectlyAnswered();
     //THEN
-    Assert.assertEquals(0, undertest.currentPlayer);
+    Assert.assertEquals(0, underTest.currentPlayer);
   }
 }

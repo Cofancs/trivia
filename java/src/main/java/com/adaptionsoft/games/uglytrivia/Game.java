@@ -124,6 +124,7 @@ public class Game {
 				
 				boolean winner = didPlayerWin();
 				currentPlayer++;
+				//TODO: duplication
 				if (currentPlayer == players.size()) currentPlayer = 0;
 				
 				return winner;
@@ -134,7 +135,7 @@ public class Game {
 			}
 			
 			
-			
+		//FIXME: extract into separeate method
 		} else {
 		
 			System.out.println("Answer was corrent!!!!");
