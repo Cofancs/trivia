@@ -136,7 +136,7 @@ public class Game {
 			}
 			
 			
-		//FIXME: extract into separeate method
+			
 		} else {
 		
 			System.out.println("Answer was corrent!!!!");
