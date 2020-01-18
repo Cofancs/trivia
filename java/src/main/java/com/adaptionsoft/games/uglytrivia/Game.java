@@ -166,6 +166,7 @@ public class Game {
 
 
 	private boolean didPlayerWin() {
+    	//TODO: condition unreadable
 		return !(purses[currentPlayer] == 6);
 	}
 }
