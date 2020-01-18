@@ -1,7 +1,5 @@
 package com.adaptionsoft.games.uglytrivia;
 
-import java.util.ArrayList;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,19 +39,29 @@ public class GameTest {
         Assert.assertEquals(1, underTest.currentPlayer);
     }
 
-    @Test
-    public void testAdd() {
-        //GIVEN
+  @Test
+  public void testAdd() {
+    //GIVEN-WHEN
+    boolean actual = underTest.add("test");
+    //THEN
+    assertFalse(underTest.players.isEmpty());
+    int[] places = underTest.places;
+    int[] expectedPlaces = new int[6];
+    expectedPlaces[underTest.howManyPlayers()] = 0;
+    assertArrayEquals(expectedPlaces, places);
 
-        //WHEN
-        boolean actual = underTest.add("test");
-        //THEN
-        assertFalse(underTest.players.isEmpty());
-        int[] places = underTest.places;
-        int[] expectedPlaces = new int[6];
-        expectedPlaces[1] = 0;
-        assertArrayEquals(expectedPlaces, places);
-        assertTrue(true);
+    int[] purses = underTest.purses;
+    int[] expectedPurses = new int[6];
+    expectedPurses[underTest.howManyPlayers()] = 0;
+    assertArrayEquals(expectedPurses, purses);
+
+    boolean[] inPenaltyBox = underTest.inPenaltyBox;
+    boolean[] expectedInPenaltyBox = new boolean[6];
+    expectedInPenaltyBox[underTest.howManyPlayers()] = false;
+
+    assertEquals(expectedInPenaltyBox[underTest.howManyPlayers()], inPenaltyBox[underTest.howManyPlayers()]);
+
+    assertTrue(true);
 
     }
 
